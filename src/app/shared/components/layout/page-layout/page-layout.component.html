@@ -1,0 +1,23 @@
+@if (imageUrl) {
+  <section class="relative min-h-1/2 w-full">
+    <!-- Background Image -->
+    <div
+      class="pointer-events-none absolute inset-0 bg-cover bg-fixed bg-center"
+      [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')' }"
+    ></div>
+
+    <!-- Content -->
+    <div class="absolute inset-0 translate-y-1/4 px-4 py-20 text-center text-white">
+      <h1 class="text-4xl font-bold lg:text-5xl">
+        {{ pageName }}
+      </h1>
+    </div>
+  </section>
+  <section class="relative p-10 lg:px-14">
+    <router-outlet></router-outlet>
+  </section>
+} @else {
+  <section class="relative px-4">
+    <router-outlet></router-outlet>
+  </section>
+}

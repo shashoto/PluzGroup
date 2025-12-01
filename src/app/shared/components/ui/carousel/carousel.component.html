@@ -1,0 +1,59 @@
+<div class="relative px-4 py-16 sm:mb-8 sm:px-4 lg:px-30">
+  <div class="relative">
+    <p-carousel
+      [value]="testimonials"
+      [numVisible]="3"
+      [numScroll]="1"
+      [circular]="true"
+      [autoplayInterval]="5000"
+      [responsiveOptions]="responsiveOptions"
+      [showIndicators]="true"
+      [showNavigators]="true"
+    >
+      <ng-template let-testimonial pTemplate="item">
+        <div class="h-full px-3">
+          <div
+            class="**h-full** **flex flex-col** rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+          >
+            <div class="mb-4 flex items-center gap-3">
+              <img
+                [src]="testimonial.image"
+                [alt]="testimonial.name"
+                class="h-12 w-12 rounded-full object-cover"
+              />
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-900">{{ testimonial.name }}</h3>
+                <p class="text-sm text-gray-600">{{ testimonial.role }}</p>
+              </div>
+              <div class="flex shrink-0 gap-0.5">
+                @for (star of [1, 2, 3, 4, 5]; track $index) {
+                  <i
+                    class="pi pi-star-fill text-sm"
+                    [class.text-yellow-400]="star <= testimonial.rating"
+                    [class.text-gray-300]="star > testimonial.rating"
+                  ></i>
+                }
+              </div>
+            </div>
+
+            <h4 class="mb-3 shrink-0 text-lg font-semibold text-gray-900">
+              It was a very good experience
+            </h4>
+
+            <p class="grow text-sm leading-relaxed text-gray-600">
+              {{ testimonial.text }}
+            </p>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="previousicon">
+        <i class="pi pi-chevron-left text-gray-600"></i>
+      </ng-template>
+
+      <ng-template pTemplate="nexticon">
+        <i class="pi pi-chevron-right text-gray-600"></i>
+      </ng-template>
+    </p-carousel>
+  </div>
+</div>

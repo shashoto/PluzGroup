@@ -1,0 +1,174 @@
+<footer class="bg-gray-custom flex h-1/2 justify-center p-4 text-white">
+  <div class="mx-auto flex max-w-[1400px] items-center justify-center">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-[380px_1fr] lg:gap-12">
+      <!-- Left Section - Brand Card -->
+      <div class="animate-slide-up">
+        <div
+          class="rounded-[28px] bg-white p-8 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+        >
+          <!-- Logo -->
+          <div class="mb-6">
+            <img src="/assets/img/logo.png" alt="Pluz Group" class="h-11 w-auto" />
+          </div>
+
+          <!-- Description -->
+          <p class="mb-10 text-[13px] leading-[1.7] font-normal text-gray-700">
+            Lorem ipsum dolor sit amet consectetur. A egestas quis purus suspendisse. Lectus
+            ultrices maecenas turpis auctor quis arcu enim.
+          </p>
+
+          <!-- Social Icons -->
+          <div class="mb-8 flex gap-3">
+            <a
+              *ngFor="let social of socialLinks"
+              [href]="social.url"
+              target="_blank"
+              [attr.aria-label]="social.label"
+              class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[17px] text-gray-700 shadow-sm transition-all duration-300 hover:scale-110 hover:bg-[#2d2d2d] hover:text-white hover:shadow-md"
+            >
+              <i [class]="social.icon"></i>
+            </a>
+          </div>
+
+          <!-- Legal Links -->
+          <div class="flex gap-5 text-[11px] font-normal text-gray-600">
+            <a
+              href="/privacy-policy"
+              class="cursor-pointer transition-colors duration-300 hover:text-gray-900"
+              >Privacy Policy</a
+            >
+            <a
+              href="/terms-of-service"
+              class="cursor-pointer transition-colors duration-300 hover:text-gray-900"
+              >Terms of Services</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Right Section - Links Grid -->
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:gap-12">
+          <!-- Products Column -->
+          <div class="animate-slide-up [animation-delay:0.1s]">
+            <h3 class="mb-5 text-[11px] font-bold tracking-[0.08em] text-white uppercase">
+              PRODUCTS
+            </h3>
+            <ul class="space-y-3">
+              <li
+                *ngFor="let link of productLinks"
+                class="transition-transform duration-300 hover:translate-x-1"
+              >
+                <a
+                  [routerLink]="link.route"
+                  class="block cursor-pointer text-[14px] text-gray-300 transition-colors duration-300 hover:text-white"
+                >
+                  {{ link.label }}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Us Column -->
+          <div class="animate-slide-up [animation-delay:0.2s]">
+            <h3 class="mb-5 text-[11px] font-bold tracking-[0.08em] text-white uppercase">
+              CONTACT US
+            </h3>
+            <ul class="space-y-4">
+              <li class="group flex items-start gap-2.5">
+                <i
+                  class="pi pi-phone animate-pulse-icon mt-0.5 flex-shrink-0 text-[13px] text-[#4ade80]"
+                ></i>
+                <a
+                  href="tel:+971522211895"
+                  class="cursor-pointer text-[14px] leading-tight text-gray-300 transition-colors duration-300 hover:text-white"
+                >
+                  +97 15222 11895
+                </a>
+              </li>
+              <li class="group flex items-start gap-2.5">
+                <i
+                  class="pi pi-envelope animate-pulse-icon mt-0.5 flex-shrink-0 text-[13px] text-[#4ade80]"
+                ></i>
+                <a
+                  href="mailto:hello@pluz-group.com"
+                  class="cursor-pointer text-[14px] leading-tight break-all text-gray-300 transition-colors duration-300 hover:text-white"
+                >
+                  hello&#64;pluz-group.com
+                </a>
+              </li>
+              <li class="group flex items-start gap-2.5">
+                <i
+                  class="pi pi-map-marker animate-pulse-icon mt-0.5 flex-shrink-0 text-[13px] text-[#4ade80]"
+                ></i>
+                <span class="text-[14px] leading-tight text-gray-300">
+                  Vune0804 Compass building AL Hulaila Industrial Zone-FZ, Ras Al Khaimah, UAE
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Company Column -->
+          <div class="animate-slide-up [animation-delay:0.3s]">
+            <h3 class="mb-5 text-[11px] font-bold tracking-[0.08em] text-white uppercase">
+              COMPANY
+            </h3>
+            <ul class="space-y-3">
+              <li
+                *ngFor="let link of companyLinks"
+                class="transition-transform duration-300 hover:translate-x-1"
+              >
+                <a
+                  [routerLink]="link.route"
+                  class="block cursor-pointer text-[14px] text-gray-300 transition-colors duration-300 hover:text-white"
+                >
+                  {{ link.label }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <!-- Newsletter Section -->
+          <div class="animate-slide-up mb-12 [animation-delay:0.4s]">
+            <h3 class="mb-4 text-[11px] font-bold tracking-[0.08em] text-white uppercase">
+              SUBSCRIPTION TO NEWSLETTER
+            </h3>
+            <form (ngSubmit)="onSubscribe()">
+              <div class="relative w-full">
+                <input
+                  type="email"
+                  [(ngModel)]="email"
+                  name="email"
+                  placeholder="E-mail"
+                  class="w-full rounded-lg border border-gray-600 bg-transparent px-4 py-3.5 text-[14px] text-white placeholder-gray-500 transition-all duration-300 outline-none focus:border-[#4ade80] focus:shadow-[0_0_0_3px_rgba(74,222,128,0.15)]"
+                  required
+                />
+                <div class="absolute top-0 right-0">
+                  <div class="flex h-8 items-center justify-center">
+                    <button
+                      (click)="onSubscribe()"
+                      class="absolute top-0 right-0 my-2 h-full rounded-r-full border-l-2 border-gray-600 px-6 text-white transition-colors"
+                    >
+                      <i class="pi pi-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Copyright Section -->
+          <div
+            class="animate-fade-in flex flex-col items-center justify-between gap-3 border-t border-gray-600 pt-6 text-[11px] text-gray-400 [animation-delay:0.5s] md:flex-row"
+          >
+            <p class="m-0">Copyright © 2025 PluzGroup All Rights Reserved</p>
+            <p class="m-0">
+              Designed & Developed by <span class="font-semibold text-white">PluzBuzz</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

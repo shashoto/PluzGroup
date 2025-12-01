@@ -1,0 +1,30 @@
+<div class="mt-6 w-full p-4 lg:mt-16 lg:p-0">
+  <h2 class="mb-6 ml-4 text-2xl font-bold">{{ title }}</h2>
+  <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
+    @for (item of products; track $index) {
+      <div
+        class="group flex flex-col items-center rounded-xl p-4 text-center transition-all duration-300 hover:shadow-lg"
+      >
+        <div
+          class="group-hover:border-green-custom flex w-full flex-1 flex-col items-center border border-gray-200 p-4"
+        >
+          <!-- Product Image -->
+          <img
+            [src]="item.image"
+            class="h-48 object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+
+          <!-- Title -->
+          <h3 class="mt-4 text-lg font-semibold">{{ item.title }}</h3>
+        </div>
+
+        <!-- Button -->
+        <button
+          pButton
+          label="View"
+          class="group-hover:bg-green-custom! mt-4 w-full rounded-md border! border-gray-300! bg-white! py-2 text-sm font-semibold text-black! transition-all duration-300 group-hover:text-white!"
+        ></button>
+      </div>
+    }
+  </div>
+</div>

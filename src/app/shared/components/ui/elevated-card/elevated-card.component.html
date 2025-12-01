@@ -1,0 +1,42 @@
+<div class="relative h-30 w-full lg:mb-36">
+  <div
+    class="absolute bottom-0 mx-auto flex w-4xl translate-x-[55%] translate-y-1/4 flex-col items-center justify-between rounded-3xl rounded-tl-[30px] rounded-br-[30px] bg-white p-10 shadow-2xl lg:flex-row"
+  >
+    <div class="flex w-full items-center justify-between">
+      <!-- LEFT SECTION -->
+      <div class="flex-1">
+        <h2 class="text-3xl leading-tight font-bold text-gray-900">
+          {{ title }}
+        </h2>
+
+        <p class="leading-relaxed text-gray-600">
+          {{ description }}
+        </p>
+
+        <button
+          class="bg-green-custom hover:bg-green-custom mt-2 rounded-lg px-6 py-3 font-medium text-white shadow transition-all"
+        >
+          View Details
+        </button>
+      </div>
+
+      <div class="relative h-full w-full flex-1 bg-red-600">
+        <!-- RIGHT SECTION -->
+        <div class="absolute -top-30 -right-40 flex h-full w-full">
+          <img
+            [src]="image1"
+            class="h-45 w-45 rounded-xl object-cover shadow-md"
+            alt="Hydraulic Machine"
+          />
+        </div>
+        <div class="absolute -top-10 -right-10 flex h-full w-full">
+          <img
+            [src]="image2"
+            class="h-40 w-40 rounded-xl border-8 border-white object-cover shadow-md"
+            alt="Hydraulic Machine"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

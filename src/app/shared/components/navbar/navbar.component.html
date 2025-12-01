@@ -1,0 +1,118 @@
+<!-- Top Bar -->
+<div class="border-b border-gray-200 bg-white">
+  <div class="w-full p-4">
+    <div class="flex items-center justify-between">
+      <!-- Left: Email -->
+      <div class="flex items-center gap-2 text-gray-700">
+        <i class="pi pi-envelope" style="color: #708090"></i>
+        <span class="text-sm">{{ email }}</span>
+      </div>
+
+      <!-- Center: Presence in -->
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-gray-600">Presence in</span>
+        <div class="flex gap-2">
+          @for (country of countries; track country.code) {
+            <img
+              [src]="country.url"
+              [alt]="country.name"
+              class="h-4 w-6 rounded object-cover"
+              [title]="country.name"
+            />
+          }
+        </div>
+      </div>
+
+      <!-- Right: Phone -->
+      <div class="flex items-center gap-2 text-gray-700">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+          />
+        </svg>
+        <span class="text-sm">{{ phone }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Navigation -->
+<div class="bg-white shadow-sm">
+  <div class="container mx-auto px-4 py-2">
+    <div class="flex items-center justify-between gap-8">
+      <!-- Logo -->
+      <div class="shrink-0">
+        <a routerLink="/" class="block">
+          <img src="assets/img/logo.png" alt="PLUZ GROUP" class="h-10" />
+        </a>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="max-w-2xl flex-1">
+        <div class="relative">
+          <input
+            type="text"
+            [(ngModel)]="searchQuery"
+            placeholder="Search hydraulic tools, pumps, cylinders..."
+            class="w-full rounded-full border border-gray-300 px-6 py-2 pr-14 focus:border-transparent focus:ring-2 focus:ring-green-600 focus:outline-none"
+          />
+          <button
+            (click)="onSearch()"
+            class="bg-green-custom hover:bg-green-custom absolute top-0 right-0 h-full rounded-r-full px-6 text-white transition-colors"
+          >
+            <i class="pi pi-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Contact Button -->
+      <div class="shrink-0">
+        <button
+          class="bg-green-custom hover:bg-green-custom rounded-lg px-8 py-3 font-medium text-white transition-colors"
+        >
+          Contact us
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation Menu -->
+<nav class="bg-gray-custom relative block text-white">
+  <div class="container mx-auto px-4">
+    <ul class="group flex items-center justify-center gap-0 py-2">
+      @for (item of routesLinks; let i = $index; track $index) {
+        <li class="group flex-1 text-center" (mouseenter)="setActiveMenu(i)" [class]="'item-' + i">
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="nav-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="nav-link"
+          >
+            {{ item.label }}
+          </a>
+          <!-- The Dropdown Div with Blur Effect -->
+          <div
+            (mouseleave)="clearActiveMenu()"
+            (mouseenter)="setActiveMenu(i)"
+            class="animate-slideDown group-hover:translate-y-12% bg-gray-custom/80 pointer-events-none fixed left-0 z-2 flex h-1/3 w-screen translate-y-0 justify-around p-6 pt-24 opacity-0 shadow-lg backdrop-blur-sm transition-all duration-300 ease-in-out group-hover:pointer-events-auto group-hover:opacity-100"
+          >
+            <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+              <ul
+                *ngFor="let col of splitIntoColumns(routesLinks[0].extraInfo, 3)"
+                class="list-disc pl-6"
+              >
+                <li *ngFor="let item of col" class="text-left text-sm">
+                  {{ item }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</nav>

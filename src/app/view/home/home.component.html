@@ -1,0 +1,40 @@
+<app-elevated-card></app-elevated-card>
+
+<!-- about pluz group -->
+<app-about-pluz-group
+  [image1]="'/assets/img/home/About1.png'"
+  [image2]="'/assets/img/home/About2.png'"
+  [image3]="'/assets/img/home/About3.png'"
+  [image4]="'/assets/img/home/About4.png'"
+></app-about-pluz-group>
+
+<div class="flex w-full justify-center">
+  <div class="relative mt-16 h-[50vh] w-full max-w-400 overflow-hidden rounded-2xl text-white">
+    <div class="absolute inset-0">
+      <img src="/assets/img/home/homeCard.png" class="h-full w-full rounded-xl object-cover" />
+    </div>
+    <div class="absolute inset-0 bg-linear-to-r from-black/90 to-transparent"></div>
+    <div class="relative space-y-6 p-6 ps-4 lg:py-10 lg:ps-10">
+      <p class="text-sm text-green-400">Lorem Ipsum Dolor Sit Amet</p>
+      <h2 class="text-3xl font-bold">BTW-Series Battery<br />Torque Wrench</h2>
+      <p class="max-w-md text-sm leading-relaxed">
+        Lorem Ipsum Dolor Sit Amet Consectetur. Lectus Eros Nunc Neque Lobortis Mauris Lectus
+        Volutpat Consequat Ut Nulla Velit Dolor Volutpat Velit Sagittis.
+      </p>
+      <button
+        pButton
+        type="button"
+        icon="pi pi-arrow-right"
+        label="CTA"
+        class="bg-green-custom rounded-md px-5 py-2 text-sm font-semibold"
+      ></button>
+    </div>
+  </div>
+</div>
+
+<app-popular-product></app-popular-product>
+<app-ultra-reliable></app-ultra-reliable>
+
+<app-blog></app-blog>
+
+<app-contact></app-contact>

@@ -5,6 +5,8 @@
 @theme {
   --font-Montserrat: 'Montserrat', sans-serif;
   --font-inter: 'Inter', sans-serif;
+  --color-gray-custom: #333333;
+  --color-green-custom: #008001;
 }
 
 @layer base {

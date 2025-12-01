@@ -1,0 +1,74 @@
+<div class="flex w-full flex-col items-center px-4 py-12">
+  <!-- Heading -->
+  <h2 class="text-center text-3xl font-bold">Contact us</h2>
+  <p class="mt-2 max-w-2xl text-center text-gray-500">
+    Lorem ipsum dolor sit amet consectetur. Proin tempus consectetur pellentesque auctor. Mauris
+    venenatis tellus et.
+  </p>
+
+  <div class="mt-10 grid w-full max-w-full grid-cols-1 items-center gap-10 lg:grid-cols-3">
+    <!-- LEFT: FORM -->
+    <div class="col-span-1 flex h-100 w-full flex-col justify-around" [formGroup]="contactForm">
+      <!-- Name -->
+      <p-floatlabel variant="on" class="block">
+        <input
+          pInputText
+          id="name"
+          formControlName="name"
+          autocomplete="off"
+          class="w-full rounded-2xl border-2 border-gray-500/50! bg-white! p-4 focus:border-gray-500/50"
+        />
+        <label for="name">Name</label>
+      </p-floatlabel>
+
+      <!-- Email -->
+      <p-floatlabel variant="on" class="block">
+        <input
+          pInputText
+          id="email"
+          formControlName="email"
+          autocomplete="off"
+          class="w-full rounded-2xl border-2 border-gray-500/50! bg-white! p-4 focus:border-gray-500/50"
+        />
+        <label for="email">Email</label>
+      </p-floatlabel>
+
+      <!-- Contact -->
+      <p-floatlabel variant="on" class="block">
+        <input
+          pInputText
+          id="contact"
+          formControlName="contact"
+          autocomplete="off"
+          class="w-full rounded-2xl border-2 border-gray-500/50! bg-white! p-4 focus:border-gray-500/50"
+        />
+        <label for="contact">Contact</label>
+      </p-floatlabel>
+
+      <!-- Message -->
+      <p-floatlabel variant="on" class="block">
+        <textarea
+          pInputTextarea
+          id="message"
+          formControlName="message"
+          rows="4"
+          class="w-full rounded-2xl border-2 border-gray-500/50! bg-white! p-4 focus:border-gray-500/50"
+        ></textarea>
+        <label for="message">Message</label>
+      </p-floatlabel>
+
+      <button
+        pButton
+        type="submit"
+        label="Submit"
+        class="bg-green-custom! w-32 rounded-md py-2 text-white"
+      ></button>
+    </div>
+
+    <!-- RIGHT: MAP WITH CARDS -->
+    <div class="col-span-2 flex h-140 w-[90%] items-center justify-center">
+      <!-- Background Map -->
+      <img src="/assets/img/footer.png" class="object-fit h-full w-full" />
+    </div>
+  </div>
+</div>

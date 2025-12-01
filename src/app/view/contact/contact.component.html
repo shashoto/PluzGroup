@@ -1,0 +1,160 @@
+<div class="flex w-full justify-center bg-gray-100 py-14">
+  <div
+    class="grid w-[90%] max-w-6xl grid-cols-1 gap-10 rounded-2xl bg-white p-10 shadow-md md:grid-cols-2"
+  >
+    <!-- LEFT CONTACT BOX -->
+    <div class="flex flex-col space-y-6 rounded-xl bg-[#2d2d2d] p-8 text-white">
+      <h2 class="text-2xl font-semibold">Reach at us</h2>
+      <p class="text-gray-300">Say something to start a live chat!</p>
+
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <i class="pi pi-phone text-lg"></i>
+          <span>+971 15223 11085</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <i class="pi pi-envelope text-lg"></i>
+          <span>help&#64;pluz-group.com</span>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <i class="pi pi-map-marker text-lg"></i>
+          <span>
+            YousifAbd Compass building <br />
+            AI Habab Industrial Zone-FZ, Ras AI Khaimah, UAE
+          </span>
+        </div>
+      </div>
+
+      <!-- Social icons -->
+      <div class="mt-4 flex items-center gap-4">
+        <i class="pi pi-facebook cursor-pointer text-xl"></i>
+        <i class="pi pi-twitter cursor-pointer text-xl"></i>
+        <i class="pi pi-instagram cursor-pointer text-xl"></i>
+        <i class="pi pi-youtube cursor-pointer text-xl"></i>
+      </div>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div>
+      <form
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        class="grid grid-cols-1 gap-5 md:grid-cols-2"
+      >
+        <input
+          pInputText
+          placeholder="First Name"
+          formControlName="firstName"
+          class="p-inputtext w-full"
+        />
+        <input
+          pInputText
+          placeholder="Last Name"
+          formControlName="lastName"
+          class="p-inputtext w-full"
+        />
+        <input pInputText placeholder="Email" formControlName="email" class="p-inputtext w-full" />
+        <input
+          pInputText
+          placeholder="Phone Number"
+          formControlName="phone"
+          class="p-inputtext w-full"
+        />
+
+        <div class="md:col-span-2">
+          <h3 class="mb-2 font-medium">Product Interested in?</h3>
+
+          <div class="flex flex-wrap gap-2">
+            <div class="flex items-center">
+              <p-radioButton
+                name="product"
+                label="Product Name 1"
+                value="1"
+                formControlName="product"
+                inputId="product1"
+              ></p-radioButton>
+              <label for="product1" class="ml-0">Product Name</label>
+            </div>
+            <div class="flex items-center">
+              <p-radioButton
+                name="product"
+                label="Product Name 1"
+                value="2"
+                formControlName="product"
+                inputId="product2"
+              ></p-radioButton>
+              <label for="product2" class="ml-0">Product Name</label>
+            </div>
+            <div class="flex items-center">
+              <p-radioButton
+                name="product"
+                label="Product Name 1"
+                value="3"
+                formControlName="product"
+                inputId="product3"
+              ></p-radioButton>
+              <label for="product3" class="ml-0">Product Name</label>
+            </div>
+            <div class="flex items-center">
+              <p-radioButton
+                name="product"
+                label="Product Name 1"
+                value="4"
+                formControlName="product"
+                inputId="product4"
+              ></p-radioButton>
+              <label for="product4" class="ml-0">Product Name</label>
+            </div>
+          </div>
+        </div>
+
+        <textarea
+          rows="4"
+          pInputTextarea
+          placeholder="Write your message..."
+          class="p-inputtext md:col-span-2"
+          formControlName="message"
+        ></textarea>
+
+        <div class="flex justify-end md:col-span-2">
+          <button
+            pButton
+            label="Send a message"
+            class="rounded-lg border-none bg-green-600 px-6 py-3 text-white shadow-md hover:bg-green-700"
+          ></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- MAP SECTION -->
+<div class="my-16 w-full text-center">
+  <h2 class="mb-6 text-2xl font-bold">PluzGroup Headquarter</h2>
+
+  <div class="flex justify-center">
+    <iframe
+      class="h-[400px] w-[90%] max-w-6xl rounded-xl shadow"
+      loading="lazy"
+      allowfullscreen
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.5581234567!2d72.8776559!3d19.0759837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzMzLjUiTiA3MsKwNTInMzkuNiJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+    >
+    </iframe>
+  </div>
+</div>
+
+<div class="my-24 w-full text-center">
+  <div class="flex h-140 w-[full] flex-col items-center justify-center">
+    <div class="my-16">
+      <h2 class="text-2xl font-bold">World Wide Presence</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur. Proin tempus consectetur pellentesque auctor. Mauris
+        venenatis tellus it.
+      </p>
+    </div>
+    <!-- Background Map -->
+    <img src="/assets/img/footer.png" class="h-full w-full object-contain" />
+  </div>
+</div>
