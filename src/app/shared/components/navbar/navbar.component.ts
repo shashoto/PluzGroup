@@ -110,11 +110,11 @@ export class NavbarComponent {
   ];
 
   countries = [
-    { code: 'AE', flag: '🇦🇪', name: 'UAE', url: '/assets/img/country/image3.png' },
-    { code: 'GB', flag: '🇬🇧', name: 'UK', url: '/assets/img/country/image4.png' },
-    { code: 'UG', flag: '🇺🇬', name: 'Uganda', url: '/assets/img/country/image5.png' },
-    { code: 'DE', flag: '🇩🇪', name: 'Germany', url: '/assets/img/country/image6.png' },
-    { code: 'SE', flag: '🇸🇪', name: 'Sweden', url: '/assets/img/country/image7.png' },
+    { code: 'AE', flag: '🇦🇪', name: 'UAE', url: '/assets/img/country/Kenya.png' },
+    { code: 'GB', flag: '🇬🇧', name: 'UK', url: '/assets/img/country/Sweden.png' },
+    { code: 'UG', flag: '🇺🇬', name: 'Uganda', url: '/assets/img/country/UAE.png' },
+    { code: 'DE', flag: '🇩🇪', name: 'Germany', url: '/assets/img/country/Uganda.png' },
+    { code: 'SE', flag: '🇸🇪', name: 'Sweden', url: '/assets/img/country/UK.png' },
   ];
 
   onSearch() {

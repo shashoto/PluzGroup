@@ -1,0 +1,8 @@
+<div class="flex w-full flex-col items-center justify-center space-y-12">
+  <h2>Presence in</h2>
+  <div class="flex min-h-28 w-3xl justify-between">
+    @for (item of flags; track $index) {
+      <img [src]="item" class="aspect-video h-15 object-contain" />
+    }
+  </div>
+</div>

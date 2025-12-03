@@ -25,28 +25,28 @@ export class CarouselComponent {
       role: 'Lead Designer',
       rating: 4,
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim arcu. Elementum felis magna pretium in tincidunt. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu.',
-      image: 'assets/user.png',
+      image: '/assets/user.png',
     },
     {
       name: 'Leo',
       role: 'Lead Designer',
       rating: 5,
       text: 'It was a very good experience. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim arcu. Elementum felis magna pretium in tincidunt.',
-      image: 'assets/user.png',
+      image: '/assets/user.png',
     },
     {
       name: 'Leo',
       role: 'Lead Designer',
       rating: 4,
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim arcu. Elementum felis magna pretium in tincidunt. Suspendisse sed magna eget nibh in turpis.',
-      image: 'assets/user.png',
+      image: '/assets/user.png',
     },
     {
       name: 'Leo',
       role: 'Lead Designer',
       rating: 5,
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu.',
-      image: 'assets/user.png',
+      image: '/assets/user.png',
     },
   ];
 

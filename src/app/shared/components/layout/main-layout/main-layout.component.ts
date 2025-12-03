@@ -5,11 +5,12 @@ import { NavbarComponent } from '../../navbar/navbar.component';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [NavbarComponent, FooterComponent, PageLayoutComponent],
+  imports: [NavbarComponent, PageLayoutComponent],
   template: `
     <app-navbar></app-navbar>
-    <app-page-layout></app-page-layout>
-    <app-footer></app-footer>
+    <div class="h-full w-full">
+      <app-page-layout></app-page-layout>
+    </div>
   `,
   styles: '',
 })

@@ -2,20 +2,39 @@
   <!-- Tabs -->
   <div class="mb-8 flex max-w-6xl min-w-3xl justify-around">
     @for (item of tabs; let i = $index; track $index) {
-      <div
-        class="flex w-full items-center justify-center"
-        [class]="i == 1 ? 'border-gray-custom border-x' : ''"
-      >
-        <button
-          class="border-b-2 px-6 py-3 text-lg font-medium transition-all"
-          [class.border-green-600]="activeTab() === item"
-          [class.border-white]="activeTab() != item"
-          [class.text-green-600]="activeTab() === item"
-          (click)="activeTab.set(item)"
+      @if (item == 'Accessories') {
+        @if (product.accesories && product.accesories.length > 0) {
+          <div
+            class="flex w-full items-center justify-center"
+            [class]="i == 1 ? 'border-gray-custom border-l' : ''"
+          >
+            <button
+              class="border-b-2 px-6 py-3 text-lg font-medium transition-all"
+              [class.border-green-600]="activeTab() === item"
+              [class.border-white]="activeTab() != item"
+              [class.text-green-600]="activeTab() === item"
+              (click)="activeTab.set(item)"
+            >
+              {{ item }}
+            </button>
+          </div>
+        }
+      } @else {
+        <div
+          class="flex w-full items-center justify-center"
+          [class]="i == 0 ? 'border-gray-custom border-r' : ''"
         >
-          {{ item }}
-        </button>
-      </div>
+          <button
+            class="border-b-2 px-6 py-3 text-lg font-medium transition-all"
+            [class.border-green-600]="activeTab() === item"
+            [class.border-white]="activeTab() != item"
+            [class.text-green-600]="activeTab() === item"
+            (click)="activeTab.set(item)"
+          >
+            {{ item }}
+          </button>
+        </div>
+      }
     }
   </div>
   @if (activeTab() === 'Overview') {

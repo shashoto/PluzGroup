@@ -8,14 +8,13 @@
         <div
           class="group-hover:border-green-custom flex w-full flex-1 flex-col items-center border border-gray-200 p-4"
         >
+          <!-- Title -->
+          <h3 class="mt-4 text-lg font-semibold">{{ item.title }}</h3>
           <!-- Product Image -->
           <img
             [src]="item.image"
             class="h-48 object-contain transition-transform duration-300 group-hover:scale-105"
           />
-
-          <!-- Title -->
-          <h3 class="mt-4 text-lg font-semibold">{{ item.title }}</h3>
         </div>
 
         <!-- Button -->

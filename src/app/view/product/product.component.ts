@@ -32,23 +32,18 @@ export class ProductComponent {
       RouterName: 'workshop-press',
     },
     {
-      title: 'Workshop Press',
-      image: '/assets/img/home/WorkshopPress.png',
-      RouterName: 'workshop-press',
-    },
-    {
       title: 'Type Press',
       image: '/assets/img/home/TypePress.png',
       RouterName: 'workshop-press',
     },
     {
       title: 'Hose Coupling Machines',
-      image: '/assets/img/home/HoseCouplingMachines.png',
+      image: '/assets/img/products/PTS-S.png',
       RouterName: 'workshop-press',
     },
     {
-      title: 'Portable Repair Hydraulic Bench',
-      image: '/assets/img/home/PortableRepairHydraulicBench.png',
+      title: 'Hose Coupling Machines',
+      image: '/assets/img/products/RES.png',
       RouterName: 'workshop-press',
     },
   ];

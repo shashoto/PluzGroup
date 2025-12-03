@@ -1,40 +1,52 @@
-<div class="relative h-30 w-full lg:mb-36">
-  <div
-    class="absolute bottom-0 mx-auto flex w-4xl translate-x-[55%] translate-y-1/4 flex-col items-center justify-between rounded-3xl rounded-tl-[30px] rounded-br-[30px] bg-white p-10 shadow-2xl lg:flex-row"
-  >
-    <div class="flex w-full items-center justify-between">
-      <!-- LEFT SECTION -->
-      <div class="flex-1">
-        <h2 class="text-3xl leading-tight font-bold text-gray-900">
-          {{ title }}
-        </h2>
+<div class="flex h-30 w-full items-center justify-center lg:mb-36">
+  <div class="relative min-w-4xl">
+    <div
+      class="absolute top-0 left-0 h-full min-h-100 max-w-4xl -translate-y-[60%] rounded-3xl bg-white p-6 shadow-2xl"
+    >
+      <div class="flex h-full w-full">
+        <div class="flex h-full flex-1 flex-col justify-between">
+          <div class="flex-1 pr-2">
+            <h2 class="text-3xl leading-tight font-bold text-wrap text-gray-900">
+              {{ title }}
+            </h2>
 
-        <p class="leading-relaxed text-gray-600">
-          {{ description }}
-        </p>
-
-        <button
-          class="bg-green-custom hover:bg-green-custom mt-2 rounded-lg px-6 py-3 font-medium text-white shadow transition-all"
-        >
-          View Details
-        </button>
-      </div>
-
-      <div class="relative h-full w-full flex-1 bg-red-600">
-        <!-- RIGHT SECTION -->
-        <div class="absolute -top-30 -right-40 flex h-full w-full">
-          <img
-            [src]="image1"
-            class="h-45 w-45 rounded-xl object-cover shadow-md"
-            alt="Hydraulic Machine"
-          />
+            <p class="leading-relaxed text-wrap text-gray-600">
+              {{ description }}
+            </p>
+          </div>
+          @if (buttonTitle != '') {
+            <div>
+              <button
+                [routerLink]="buttonUrl"
+                class="bg-green-custom hover:bg-green-custom mt-2 rounded-lg px-6 py-3 font-medium text-white shadow transition-all"
+              >
+                {{ buttonTitle }}
+              </button>
+            </div>
+          }
         </div>
-        <div class="absolute -top-10 -right-10 flex h-full w-full">
-          <img
-            [src]="image2"
-            class="h-40 w-40 rounded-xl border-8 border-white object-cover shadow-md"
-            alt="Hydraulic Machine"
-          />
+
+        <div class="flex-1">
+          @if (image2) {
+            <div class="relative m-auto flex h-full w-full items-center justify-between">
+              <div class="absolute top-0 right-0">
+                <img
+                  [src]="image1"
+                  class="h-70 w-70 rounded-xl object-cover shadow-md"
+                  alt="Hydraulic Machine"
+                />
+              </div>
+              <div class="absolute bottom-0 left-5">
+                <img
+                  [src]="image2"
+                  class="h-60 w-60 rounded-xl border-8 border-white object-cover shadow-md"
+                  alt="Hydraulic Machine"
+                />
+              </div>
+            </div>
+          } @else {
+            <img [src]="image1" alt="" class="w-full rounded-2xl object-cover" />
+          }
         </div>
       </div>
     </div>

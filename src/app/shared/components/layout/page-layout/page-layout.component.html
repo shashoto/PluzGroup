@@ -13,11 +13,17 @@
       </h1>
     </div>
   </section>
-  <section class="relative p-10 lg:px-14">
-    <router-outlet></router-outlet>
+  <section class="">
+    <div class="p-10 lg:px-14">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
   </section>
 } @else {
-  <section class="relative px-4">
-    <router-outlet></router-outlet>
+  <section>
+    <div class="p-10 lg:px-14">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
   </section>
 }

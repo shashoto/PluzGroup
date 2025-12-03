@@ -1,30 +1,33 @@
 <div class="mt-6 w-full p-4 lg:mt-16 lg:p-0">
   <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
     @for (item of products; track $index) {
-      <div
-        class="group flex flex-col items-center rounded-xl p-4 text-center transition-all duration-300 hover:shadow-lg"
-      >
+      @if ($index === 4 || $index === 7) {
+        <div class="col-span-1"></div>
+      } @else {
         <div
-          class="group-hover:border-green-custom flex w-full flex-1 flex-col items-center border border-gray-200 p-4"
+          class="group flex w-80 flex-col items-center rounded-xl p-4 text-center transition-all duration-300 hover:shadow-lg"
         >
-          <!-- Product Image -->
-          <img
-            [src]="item.image"
-            class="h-48 object-contain transition-transform duration-300 group-hover:scale-105"
-          />
+          <div
+            class="group-hover:border-green-custom flex w-full flex-1 flex-col items-center border border-gray-200 p-4"
+          >
+            <!-- Title -->
+            <h3 class="mt-4 text-lg font-semibold">{{ item.title }}</h3>
+            <!-- Product Image -->
+            <img
+              [src]="item.image"
+              class="h-48 object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
 
-          <!-- Title -->
-          <h3 class="mt-4 text-lg font-semibold">{{ item.title }}</h3>
+          <!-- Button -->
+          <button
+            pButton
+            label="View"
+            [routerLink]="['/view/products', item.RouterName]"
+            class="group-hover:bg-green-custom! mt-4 w-full rounded-md border! border-gray-300! bg-white! py-2 text-sm font-semibold text-black! transition-all duration-300 group-hover:text-white!"
+          ></button>
         </div>
-
-        <!-- Button -->
-        <button
-          pButton
-          label="View"
-          [routerLink]="['/view/products', item.RouterName]"
-          class="group-hover:bg-green-custom! mt-4 w-full rounded-md border! border-gray-300! bg-white! py-2 text-sm font-semibold text-black! transition-all duration-300 group-hover:text-white!"
-        ></button>
-      </div>
+      }
     }
   </div>
 </div>

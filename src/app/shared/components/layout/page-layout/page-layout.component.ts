@@ -3,9 +3,11 @@ import { Component, inject } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 
+import { FooterComponent } from '../../footer/footer.component';
+
 @Component({
   selector: 'app-page-layout',
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, FooterComponent],
   templateUrl: './page-layout.component.html',
   styleUrl: './page-layout.component.scss',
 })
@@ -44,7 +46,13 @@ export class PageLayoutComponent {
   private setBackground(url: string) {
     const config = this.bgImages[url];
 
+    console.log('url', url);
     this.imageUrl = config?.image ?? null;
+    if (url === 'home') {
+      this.pageName = '';
+
+      return;
+    }
 
     this.pageName =
       config?.title && config.title.trim() !== '' ? config.title : this.formatTitleFromUrl(url);
