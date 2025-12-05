@@ -1,0 +1,71 @@
+<div class="w-full overflow-x-auto">
+  <table class="w-full border-collapse text-sm">
+    <thead>
+      <tr class="bg-yellow-300 text-center text-black">
+        <th colspan="16" class="border border-black p-2 font-semibold">
+          Hose Cutting/Stripping Machines
+        </th>
+      </tr>
+
+      <tr class="bg-yellow-300 text-center text-black">
+        <ng-container *ngFor="let h of headers.top">
+          <th class="border border-black p-2 font-semibold" [attr.rowspan]="h.rowspan">
+            {{ h.label }}
+          </th>
+        </ng-container>
+      </tr>
+
+      <tr *ngIf="headers.bottom.length" class="bg-yellow-300 text-center text-black">
+        <ng-container *ngFor="let h of headers.bottom">
+          <th class="border border-black p-2">
+            {{ h.label }}
+          </th>
+        </ng-container>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let r of data" class="text-center odd:bg-gray-50 hover:bg-gray-100">
+        <td class="border p-2">{{ r.no }}</td>
+        <td class="border p-2">{{ r.model }}</td>
+        <td class="border p-2">{{ r.locking || '' }}</td>
+        <td class="border p-2">{{ r.coreMolds || '' }}</td>
+        <td class="border p-2">{{ r.shrinkingStroke || '' }}</td>
+        <td class="border p-2">{{ r.accuracy || '' }}</td>
+        <td class="border p-2">{{ r.displacement || '' }}</td>
+        <td class="border p-2">{{ r.power }}</td>
+        <td class="border p-2">{{ r.systemPressure || '' }}</td>
+        <td class="border p-2">{{ r.voltage }}</td>
+        <td class="border p-2">{{ r.closingForce || '' }}</td>
+        <td class="border p-2">{{ r.speed }}</td>
+        <td class="border p-2">{{ r.dim || '' }}</td>
+        <td class="border p-2">{{ r.weight }}</td>
+        <td class="border p-2">{{ r.other }}</td>
+        <td class="border p-2 whitespace-pre-line">{{ r.features }}</td>
+      </tr>
+      <tr class="bg-yellow-300 text-center text-black">
+        <th colspan="16" class="border border-black p-2 font-semibold">
+          Hose Cutting/stripping machines
+        </th>
+      </tr>
+      <tr *ngFor="let r of extraData" class="text-center odd:bg-gray-50 hover:bg-gray-100">
+        <td class="border p-2">{{ r.no }}</td>
+        <td class="border p-2">{{ r.model }}</td>
+        <td class="border p-2">{{ r.locking || '' }}</td>
+        <td class="border p-2">{{ r.coreMolds || '' }}</td>
+        <td class="border p-2">{{ r.shrinkingStroke || '' }}</td>
+        <td class="border p-2">{{ r.accuracy || '' }}</td>
+        <td class="border p-2">{{ r.displacement || '' }}</td>
+        <td class="border p-2">{{ r.power }}</td>
+        <td class="border p-2">{{ r.systemPressure || '' }}</td>
+        <td class="border p-2">{{ r.voltage }}</td>
+        <td class="border p-2">{{ r.closingForce || '' }}</td>
+        <td class="border p-2">{{ r.speed }}</td>
+        <td class="border p-2">{{ r.dim || '' }}</td>
+        <td class="border p-2">{{ r.weight }}</td>
+        <td class="border p-2">{{ r.other }}</td>
+        <td class="border p-2 whitespace-pre-line">{{ r.features }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

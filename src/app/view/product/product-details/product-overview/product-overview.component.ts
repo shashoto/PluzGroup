@@ -6,15 +6,29 @@ import { TabMenuModule } from 'primeng/tabmenu';
 
 import { Product } from '../../service/product.service';
 
+import { EhpmTableComponent } from '@/app/shared/components/ui/ehpm-table/ehpm-table.component';
+import { HcmTableComponent } from '@/app/shared/components/ui/hcm-table/hcm-table.component';
+import { PrhbTableComponent } from '@/app/shared/components/ui/prhb-table/prhb-table.component';
+import { PtpTableComponent } from '@/app/shared/components/ui/ptp-table/ptp-table.component';
+
 @Component({
   selector: 'app-product-overview',
-  imports: [CommonModule, TabMenuModule, ButtonModule, ImageModule],
+  imports: [
+    CommonModule,
+    TabMenuModule,
+    ButtonModule,
+    ImageModule,
+    EhpmTableComponent,
+    PtpTableComponent,
+    PrhbTableComponent,
+    HcmTableComponent,
+  ],
   templateUrl: './product-overview.component.html',
   styleUrl: './product-overview.component.scss',
 })
 export class ProductOverviewComponent {
   @Input() product: Product = {} as Product;
-
+  @Input() tableSelecter: string = '';
   tabs = ['Overview', 'Specs', 'Accessories'];
 
   activeTab = signal('Overview');

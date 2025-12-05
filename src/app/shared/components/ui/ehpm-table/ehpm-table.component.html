@@ -1,0 +1,51 @@
+<div class="w-full overflow-x-auto p-6">
+  <table class="w-full border-collapse text-sm">
+    <thead>
+      <!-- TOP HEADER ROW -->
+      <tr class="bg-green-400 text-center text-white">
+        <ng-container *ngFor="let h of headers.top; let i = index">
+          <th
+            class="border border-black p-3 font-semibold"
+            [attr.rowspan]="h.rowspan"
+            [innerHTML]="h.label"
+          ></th>
+        </ng-container>
+      </tr>
+
+      <!-- BOTTOM HEADER ROW -->
+      <tr class="bg-green-400 text-center text-xs text-white">
+        <ng-container *ngFor="let h of headers.bottom">
+          <th class="border border-black p-1" [innerHTML]="h.label"></th>
+        </ng-container>
+      </tr>
+    </thead>
+
+    <!-- BODY -->
+    <tbody>
+      <tr *ngFor="let item of data" class="text-center odd:bg-gray-50 hover:bg-gray-100">
+        <td class="border border-black p-3">{{ item.model }}</td>
+        <td class="border border-black p-3">{{ item.A }}</td>
+        <td class="border border-black p-3">{{ item.B }}</td>
+        @if (item.C) {
+          <td class="border border-black p-3">{{ item.C }}</td>
+        }
+        @if (item.D) {
+          <td class="border border-black p-3">{{ item.D }}</td>
+        }
+        @if (item.E) {
+          <td class="border border-black p-3">{{ item.E }}</td>
+        }
+        <td *ngIf="item.travel" class="border border-black p-3">{{ item.travel }}</td>
+        <td *ngIf="item.Stroke" class="border border-black p-3">{{ item.Stroke }}</td>
+        <td *ngIf="item.Pressure" class="border border-black p-3">{{ item.Pressure }}</td>
+        <td *ngIf="item.worktable" class="border border-black p-3">{{ item.worktable }}</td>
+        <td *ngIf="item.Capacity_ton" class="border border-black p-3">{{ item.Capacity_ton }}</td>
+        <td *ngIf="item.Power_KW" class="border border-black p-3">{{ item.Power_KW }}</td>
+        <td *ngIf="item.capacity" class="border border-black p-3">{{ item.capacity }}</td>
+        <td *ngIf="item.power" class="border border-black p-3">{{ item.power }}</td>
+        <td class="border border-black p-3">{{ item.grossWeight }}</td>
+        <td class="border border-black p-3">{{ item.packingSize }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

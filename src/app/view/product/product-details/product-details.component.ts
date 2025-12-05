@@ -20,11 +20,14 @@ export class ProductDetailsComponent {
   // SelectedProductInfo: Product = {} as Product;
   SelectedProductInfo = signal<Product>({} as Product);
   allProducts: Product[] = [];
+  url: string = '';
 
   getAllProduct() {
     const url = this.router.url.split('/');
     const last = url[url.length - 1];
 
+    console.log(last);
+    this.url = last;
     this.allProducts = this.productService.getProductDetails(last) ?? [];
     this.SelectedProductInfo.set(this.allProducts[0]);
   }

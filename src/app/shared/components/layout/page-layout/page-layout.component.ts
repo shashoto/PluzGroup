@@ -19,6 +19,7 @@ export class PageLayoutComponent {
     home: { image: '/assets/img/home/hero.png', title: '' },
     about: { image: '/assets/img/home/hero.png', title: 'About Us' },
     products: { image: '/assets/img/home/hero.png', title: 'Our Products' },
+    contact: { image: '/assets/img/contactus/hero.png', title: 'Contact Us' },
   };
 
   constructor() {

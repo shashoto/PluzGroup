@@ -1,0 +1,60 @@
+<div class="w-full overflow-x-auto p-6">
+  <table class="w-full border-collapse text-sm">
+    <thead>
+      <!-- TOP HEADER ROW -->
+      <tr class="bg-green-400 text-center text-white">
+        <ng-container *ngFor="let h of headers.top; let i = index">
+          <th
+            class="border border-black p-3 font-semibold"
+            [attr.rowspan]="h.rowspan"
+            [innerHTML]="h.label"
+          ></th>
+        </ng-container>
+      </tr>
+
+      <!-- BOTTOM HEADER ROW -->
+      <tr class="bg-green-400 text-center text-xs text-white">
+        <ng-container *ngFor="let h of headers.bottom">
+          <th class="border border-black p-1" [innerHTML]="h.label"></th>
+        </ng-container>
+      </tr>
+    </thead>
+
+    <!-- BODY -->
+    <tbody>
+      <tr *ngFor="let item of data" class="text-center odd:bg-gray-50 hover:bg-gray-100">
+        <td class="border border-black p-3">{{ item.feature }}</td>
+        <td class="border border-black p-3">{{ item.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="mb-8 flex items-center justify-center">
+  <h2 class="mb-4 text-3xl font-bold">General technical characteristics PRHB-1</h2>
+</div>
+<div class="space-y-6">
+  <div *ngFor="let group of groupKeys" class="rounded-lg shadow">
+    <div class="bg-gray-100 px-4 py-2 text-lg font-semibold">
+      {{ group }}
+    </div>
+
+    <table class="w-full border-collapse text-left">
+      <!-- Header -->
+      <!-- <thead>
+        <tr class="bg-gray-200">
+          <th class="w-1/3 border px-4 py-2">Specification</th>
+          <th class="border px-4 py-2">Details</th>
+        </tr>
+      </thead> -->
+
+      <!-- Rows -->
+      <tbody>
+        <tr *ngFor="let row of filteredTable(group)" class="odd:bg-white even:bg-gray-50">
+          <td class="w-130 border px-4 py-2">{{ row.spec }}</td>
+          <td class="border px-4 py-2">{{ row.details }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

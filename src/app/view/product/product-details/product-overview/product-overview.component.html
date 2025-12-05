@@ -6,7 +6,7 @@
         @if (product.accesories && product.accesories.length > 0) {
           <div
             class="flex w-full items-center justify-center"
-            [class]="i == 1 ? 'border-gray-custom border-l' : ''"
+            [class]="i == 2 ? 'border-gray-custom border-l' : ''"
           >
             <button
               class="border-b-2 px-6 py-3 text-lg font-medium transition-all"
@@ -22,7 +22,7 @@
       } @else {
         <div
           class="flex w-full items-center justify-center"
-          [class]="i == 0 ? 'border-gray-custom border-r' : ''"
+          [class]="i == 1 ? 'border-gray-custom border-l' : ''"
         >
           <button
             class="border-b-2 px-6 py-3 text-lg font-medium transition-all"
@@ -56,105 +56,154 @@
 
       <!-- Right: Product Description -->
       <div class="col-span-4">
-        <h2 class="mb-4 text-2xl font-bold text-green-700">Product Description</h2>
+        <div class="flex h-full flex-col justify-between py-4">
+          <div>
+            <h2 class="mb-4 text-2xl font-bold text-green-700">Product Description</h2>
 
-        <p class="mb-6 leading-relaxed text-gray-700">
-          {{ product.description }}
-        </p>
+            <p class="mb-6 leading-relaxed text-gray-700" [innerHTML]="product.description"></p>
+          </div>
+          @if (product.productOverView.otherDetails) {
+            <div *ngFor="let group of product.productOverView.otherDetails | keyvalue" class="mb-6">
+              <h3 class="mb-2 text-lg font-semibold">{{ group.key }}</h3>
 
-        <div *ngFor="let group of product.productOverView.otherDetails | keyvalue" class="mb-6">
-          <h3 class="mb-2 text-lg font-semibold">{{ group.key }}</h3>
+              <ul
+                class="ml-5 space-y-1 text-gray-700"
+                [class]="
+                  product.productOverView.otherDetailPointType == 'Number'
+                    ? 'list-decimal'
+                    : 'list-disc'
+                "
+              >
+                <li *ngFor="let point of group.value">{{ point }}</li>
+              </ul>
+            </div>
+          }
+          @if (product.productOverView.extraInfo) {
+            <div>
+              <p class="mb-6 leading-relaxed text-gray-700">
+                {{ product.productOverView.extraInfo }}
+              </p>
+            </div>
+          }
 
-          <ul
-            class="ml-5 space-y-1 text-gray-700"
-            [class]="
-              product.productOverView.otherDetailPointType == 'Number'
-                ? 'list-decimal'
-                : 'list-disc'
-            "
-          >
-            <li *ngFor="let point of group.value">{{ point }}</li>
-          </ul>
+          <!-- Download Button -->
+          <div>
+            <button
+              pButton
+              label="Download"
+              class="rounded-lg border-none bg-green-600 px-5 py-2 text-white"
+            ></button>
+          </div>
         </div>
-
-        <!-- Download Button -->
-        <button
-          pButton
-          label="Download"
-          class="rounded-lg border-none bg-green-600 px-5 py-2 text-white"
-        ></button>
       </div>
     </div>
   } @else if (activeTab() === 'Specs') {
-    <div class="flex items-center justify-center">
-      <h2 class="text-green-custom mb-4 text-3xl font-bold">{{ product.specs.images.title }}</h2>
-    </div>
-    <div class="flex items-center justify-center">
-      <img [src]="product.specs.images.image" class="max-h-[450px] object-contain" />
-    </div>
+    @for (item of product.specs.images; track $index) {
+      <div class="mb-8 flex items-center justify-center">
+        <h2 class="mb-4 text-3xl font-bold">{{ item.title }}</h2>
+      </div>
+      <div class="mb-8 flex items-center justify-center">
+        @if (tableSelecter == 'workshop-press') {
+          <app-ehpm-table
+            [data]="product.specs.table"
+            [headers]="product.specs.tableHeaderInfo"
+          ></app-ehpm-table>
+        } @else if (tableSelecter == 'type-press') {
+          <app-ptp-table
+            [data]="product.specs.table"
+            [headers]="product.specs.tableHeaderInfo"
+          ></app-ptp-table>
+        } @else if (tableSelecter == 'protable-repair-hydraulic-bench') {
+          <app-prhb-table
+            [data]="product.specs.table"
+            [headers]="product.specs.tableHeaderInfo"
+          ></app-prhb-table>
+        } @else if (tableSelecter == 'house-coupling-machine') {
+          <app-hcm-table
+            [data]="product.specs.table"
+            [headers]="product.specs.tableHeaderInfo"
+          ></app-hcm-table>
+        }
+      </div>
+    }
   } @else if (activeTab() === 'Accessories') {
-    <div class="w-full space-y-4">
+    <div class="w-full max-w-4xl">
       @for (item of product.accesories; track $index) {
-        <div class="grid grid-cols-3 items-center border p-4">
+        <div class="grid grid-cols-3 items-center border">
           <!-- Left: Title -->
-          <div class="text-lg font-semibold text-green-700">
+          <div class="text-center text-lg font-semibold text-green-700">
             {{ item.title }}
           </div>
 
           <!-- Middle: Bullet Points -->
-          <ul class="col-span-1 space-y-1">
-            @for (point of item.points; track point) {
-              <li class="ml-5 list-disc text-sm">
-                {{ point }}
-              </li>
-            }
-          </ul>
+          @if (product.accesoriesType == 'point') {
+            <ul class="border-gray-custom col-span-1 space-y-1 border-x py-4">
+              @for (point of item.points; track point) {
+                <li class="ml-5 list-disc text-right text-sm" [innerHTML]="point"></li>
+              }
+            </ul>
+          } @else {
+            <div
+              class="border-gray-custom col-span-1 flex h-full items-center justify-center space-y-1 border-x py-4"
+            >
+              <div class="">
+                @for (point of item.points; track point) {
+                  <p class="ml-5 list-disc text-right text-sm" [innerHTML]="point"></p>
+                }
+              </div>
+            </div>
+          }
 
           <!-- Right: Image -->
-          <div class="flex justify-center">
+          <div class="border-gray-custom flex justify-center">
             <img [src]="item.image" class="max-h-32 object-contain" />
           </div>
         </div>
       }
     </div>
   }
+  @if (activeTab() === 'Overview') {
+    <div class="my-10 w-full">
+      <!-- When bottomDescription is a string -->
+      @if (isString(product.bottomDescription)) {
+        <div>
+          <p class="px-4 text-center leading-relaxed text-gray-700">
+            {{ product.bottomDescription }}
+          </p>
+        </div>
+      }
 
-  <div class="my-10 w-full">
-    <!-- When bottomDescription is a string -->
-    <div *ngIf="isString(product.bottomDescription)">
-      <p class="px-4 text-center leading-relaxed text-gray-700">
-        {{ product.bottomDescription }}
-      </p>
+      <!-- When bottomDescription is an object -->
+      @if (isObject(product.bottomDescription)) {
+        <div *ngIf="isObject(product.bottomDescription)" class="mx-auto max-w-4xl">
+          <h2 class="mb-4 text-center text-2xl font-bold text-green-700">
+            {{ product.bottomDescription.title }}
+          </h2>
+
+          <ul class="ml-6 list-disc space-y-2 text-gray-700">
+            <li *ngFor="let point of product.bottomDescription.points">
+              {{ point }}
+            </li>
+          </ul>
+        </div>
+      }
     </div>
-
-    <!-- When bottomDescription is an object -->
-    <div *ngIf="isObject(product.bottomDescription)" class="mx-auto max-w-4xl">
-      <h2 class="mb-4 text-center text-2xl font-bold text-green-700">
-        {{ product.bottomDescription.title }}
+  }
+  @if (product.footprint) {
+    <div class="mt-10 flex w-full flex-col items-center">
+      <!-- Title -->
+      <h2 class="mb-4 text-xl font-bold text-gray-800 md:text-2xl">
+        {{ product.footprintTitle }}
       </h2>
 
-      <ul class="ml-6 list-disc space-y-2 text-gray-700">
-        <li *ngFor="let point of product.bottomDescription.points">
-          {{ point }}
-        </li>
-      </ul>
+      <!-- Box container -->
+      <div class="flex w-full max-w-4xl justify-center rounded-md bg-white p-4 shadow-sm">
+        <p-image
+          [src]="product.footprint"
+          [alt]="product.footprintTitle"
+          class="max-h-[420px] w-full object-contain"
+        ></p-image>
+      </div>
     </div>
-  </div>
-  <div class="mt-10 flex w-full flex-col items-center">
-    <!-- Title -->
-    <h2 class="mb-4 text-xl font-bold text-gray-800 md:text-2xl">
-      {{ product.footprintTitle }}
-    </h2>
-
-    <!-- Box container -->
-    <div
-      class="flex w-full max-w-4xl justify-center rounded-md border border-gray-400 bg-white p-4 shadow-sm"
-    >
-      <p-image
-        [src]="product.footprint"
-        [alt]="product.footprintTitle"
-        class="max-h-[420px] w-full object-contain"
-      ></p-image>
-    </div>
-  </div>
+  }
 </div>

@@ -1,30 +1,35 @@
 <div class="mt-6 flex w-full justify-center p-4 lg:mt-16 lg:p-0">
   <div class="flex items-center justify-around">
-    @for (item of allProducts; track $index) {
-      <div
-        class="group flex flex-col items-center rounded-xl p-4 text-center transition-all duration-300"
-        (click)="SelectedProductInfo.set(item)"
-      >
+    @if (allProducts.length > 1) {
+      @for (item of allProducts; track $index) {
         <div
-          class="group-hover:border-green-custom flex max-w-xs flex-1 flex-col items-center border border-gray-200 p-4 hover:shadow-lg"
-          [class]="SelectedProductInfo().id == item.id ? 'border-green-custom' : ''"
+          class="group flex flex-col items-center rounded-xl p-4 text-center transition-all duration-300"
+          (click)="SelectedProductInfo.set(item)"
         >
-          <!-- Product Image -->
-          <img
-            [src]="item.image"
-            class="h-48 object-contain transition-transform duration-300 group-hover:scale-105"
-          />
+          <div
+            class="group-hover:border-green-custom flex max-w-xs flex-1 flex-col items-center border border-gray-200 p-4 hover:shadow-lg"
+            [class]="SelectedProductInfo().id == item.id ? 'border-green-custom' : ''"
+          >
+            <!-- Product Image -->
+            <img
+              [src]="item.image"
+              class="h-48 object-contain transition-transform duration-300 group-hover:scale-105"
+            />
 
-          <!-- Title -->
-          <h3 class="mt-4 text-lg font-semibold">{{ item.title }}</h3>
+            <!-- Title -->
+            <h3 class="mt-4 text-lg font-semibold">{{ item.title }}</h3>
+          </div>
         </div>
-      </div>
+      }
     }
   </div>
 </div>
 
-<div class="mx-12 my-16">
-  <app-product-overview [product]="SelectedProductInfo()"></app-product-overview>
+<div class="mx-36 my-16">
+  <app-product-overview
+    [product]="SelectedProductInfo()"
+    [tableSelecter]="url"
+  ></app-product-overview>
 </div>
 
 <app-popular-product></app-popular-product>

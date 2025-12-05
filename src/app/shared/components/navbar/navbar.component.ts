@@ -17,95 +17,54 @@ export class NavbarComponent {
   activeMenuIndex: number | null = null;
   activeSubMenuIndex: number = 0;
   isDrawerOpen: boolean = false;
+  blur: boolean = false;
 
   routesLinks = [
     {
       label: 'Home',
       path: '/view/home',
-      extraInfo: [
-        'Hydraulic Torque Wrench: Types, Pumps, Accessories',
-        'Square Drive Hydraulic Torque Wrenches',
-        'Low Profile Hydraulic Torque Wrenches',
-        'Battery Torque Wrenches',
-        'Pneumatic Torque Wrenches',
-        'Plug-in Electric Torque Wrenches',
-        'Hydraulic Bolt Tensioner', //middle
-        'Hydraulic Wrench/Tensioner/Jack Pump',
-        'Jacking System',
-        'Hydraulic Jacks',
-        'Heavy Duty Hydraulic Bearing Puller',
-        'Torque Multiplier', //right
-        'Flange Spreaders',
-        'TP-Tensile Calibrator',
-        'TC-Torque Calibrator',
-        'Accessories',
-      ],
     },
     {
       label: 'About Us',
       path: '/view/about',
-      extraInfo: [
-        'Hydraulic Torque Wrench: Types, Pumps, Accessories',
-        'Square Drive Hydraulic Torque Wrenches',
-        'Low Profile Hydraulic Torque Wrenches',
-        'Battery Torque Wrenches',
-        'Pneumatic Torque Wrenches',
-        'Plug-in Electric Torque Wrenches',
-        'Hydraulic Bolt Tensioner', //middle
-        'Hydraulic Wrench/Tensioner/Jack Pump',
-        'Jacking System',
-        'Hydraulic Jacks',
-        'Heavy Duty Hydraulic Bearing Puller',
-        'Torque Multiplier', //right
-        'Flange Spreaders',
-        'TP-Tensile Calibrator',
-        'TC-Torque Calibrator',
-        'Accessories',
-      ],
     },
     {
       label: 'Products',
       path: '/view/products',
       extraInfo: [
-        'Hydraulic Torque Wrench: Types, Pumps, Accessories',
-        'Square Drive Hydraulic Torque Wrenches',
-        'Low Profile Hydraulic Torque Wrenches',
-        'Battery Torque Wrenches',
-        'Pneumatic Torque Wrenches',
-        'Plug-in Electric Torque Wrenches',
-        'Hydraulic Bolt Tensioner', //middle
-        'Hydraulic Wrench/Tensioner/Jack Pump',
-        'Jacking System',
-        'Hydraulic Jacks',
-        'Heavy Duty Hydraulic Bearing Puller',
-        'Torque Multiplier', //right
-        'Flange Spreaders',
-        'TP-Tensile Calibrator',
-        'TC-Torque Calibrator',
-        'Accessories',
+        {
+          label: 'Torque Wrench',
+          url: '',
+        },
+        {
+          label: 'Workshop Press',
+          url: '',
+        },
+        {
+          label: 'Tyre Press',
+          url: '',
+        },
+        {
+          label: 'Portable Repair Hydraulic Bench',
+          url: '',
+        },
+        {
+          label: 'Hose Coupling',
+          url: '',
+        },
+        {
+          label: 'Hydraulic Cylinder Jacks',
+          url: '',
+        },
+        {
+          label: 'Rotating Engine Stand',
+          url: '',
+        },
       ],
     },
     {
       label: 'Contact',
       path: '/view/contact',
-      extraInfo: [
-        'Hydraulic Torque Wrench: Types, Pumps, Accessories',
-        'Square Drive Hydraulic Torque Wrenches',
-        'Low Profile Hydraulic Torque Wrenches',
-        'Battery Torque Wrenches',
-        'Pneumatic Torque Wrenches',
-        'Plug-in Electric Torque Wrenches',
-        'Hydraulic Bolt Tensioner', //middle
-        'Hydraulic Wrench/Tensioner/Jack Pump',
-        'Jacking System',
-        'Hydraulic Jacks',
-        'Heavy Duty Hydraulic Bearing Puller',
-        'Torque Multiplier', //right
-        'Flange Spreaders',
-        'TP-Tensile Calibrator',
-        'TC-Torque Calibrator',
-        'Accessories',
-      ],
     },
   ];
 
@@ -122,8 +81,9 @@ export class NavbarComponent {
       console.log('Searching for:', this.searchQuery);
     }
   }
-  splitIntoColumns(list: string[], columnCount: number) {
-    const cols: string[][] = Array.from({ length: columnCount }, () => []);
+  splitIntoColumns(columnCount: number, list?: { label: string; url: string }[]) {
+    if (!list) return;
+    const cols: { label: string; url: string }[][] = Array.from({ length: columnCount }, () => []);
 
     list.forEach((item, index) => {
       cols[index % columnCount].push(item);
@@ -134,10 +94,12 @@ export class NavbarComponent {
   setActiveMenu(index: number) {
     this.activeMenuIndex = index;
     this.activeSubMenuIndex = 0;
+    this.blur = index === 2 ? true : false;
   }
 
   clearActiveMenu() {
     this.activeMenuIndex = null;
+    this.blur = false;
   }
 
   setActiveSubMenu(index: number) {

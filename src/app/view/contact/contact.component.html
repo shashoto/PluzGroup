@@ -1,135 +1,142 @@
-<div class="flex w-full justify-center bg-gray-100 py-14">
-  <div
-    class="grid w-[90%] max-w-6xl grid-cols-1 gap-10 rounded-2xl bg-white p-10 shadow-md md:grid-cols-2"
-  >
-    <!-- LEFT CONTACT BOX -->
-    <div class="flex flex-col space-y-6 rounded-xl bg-[#2d2d2d] p-8 text-white">
-      <h2 class="text-2xl font-semibold">Reach at us</h2>
-      <p class="text-gray-300">Say something to start a live chat!</p>
+<div class="flex w-full items-center justify-center lg:mb-36">
+  <div class="relative w-350">
+    <div class="absolute top-0 left-0 w-350 -translate-y-[25%] rounded-3xl bg-white p-6 shadow-2xl">
+      <div class="flex h-150 w-full justify-between gap-10 rounded-2xl bg-white p-10">
+        <!-- LEFT CONTACT BOX -->
+        <div class="flex flex-col justify-between space-y-6 rounded-xl bg-[#2d2d2d] p-8 text-white">
+          <div class="space-y-3">
+            <h2 class="text-2xl font-semibold">Reach at us</h2>
+            <p class="text-gray-300">Say something to start a live chat!</p>
 
-      <div class="space-y-3">
-        <div class="flex items-center gap-3">
-          <i class="pi pi-phone text-lg"></i>
-          <span>+971 15223 11085</span>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <i class="pi pi-envelope text-lg"></i>
-          <span>help&#64;pluz-group.com</span>
-        </div>
-
-        <div class="flex items-start gap-3">
-          <i class="pi pi-map-marker text-lg"></i>
-          <span>
-            YousifAbd Compass building <br />
-            AI Habab Industrial Zone-FZ, Ras AI Khaimah, UAE
-          </span>
-        </div>
-      </div>
-
-      <!-- Social icons -->
-      <div class="mt-4 flex items-center gap-4">
-        <i class="pi pi-facebook cursor-pointer text-xl"></i>
-        <i class="pi pi-twitter cursor-pointer text-xl"></i>
-        <i class="pi pi-instagram cursor-pointer text-xl"></i>
-        <i class="pi pi-youtube cursor-pointer text-xl"></i>
-      </div>
-    </div>
-
-    <!-- RIGHT FORM -->
-    <div>
-      <form
-        [formGroup]="contactForm"
-        (ngSubmit)="onSubmit()"
-        class="grid grid-cols-1 gap-5 md:grid-cols-2"
-      >
-        <input
-          pInputText
-          placeholder="First Name"
-          formControlName="firstName"
-          class="p-inputtext w-full"
-        />
-        <input
-          pInputText
-          placeholder="Last Name"
-          formControlName="lastName"
-          class="p-inputtext w-full"
-        />
-        <input pInputText placeholder="Email" formControlName="email" class="p-inputtext w-full" />
-        <input
-          pInputText
-          placeholder="Phone Number"
-          formControlName="phone"
-          class="p-inputtext w-full"
-        />
-
-        <div class="md:col-span-2">
-          <h3 class="mb-2 font-medium">Product Interested in?</h3>
-
-          <div class="flex flex-wrap gap-2">
-            <div class="flex items-center">
-              <p-radioButton
-                name="product"
-                label="Product Name 1"
-                value="1"
-                formControlName="product"
-                inputId="product1"
-              ></p-radioButton>
-              <label for="product1" class="ml-0">Product Name</label>
+            <div class="flex items-center gap-3">
+              <i class="pi pi-phone text-lg"></i>
+              <span>+971 15223 11085</span>
             </div>
-            <div class="flex items-center">
-              <p-radioButton
-                name="product"
-                label="Product Name 1"
-                value="2"
-                formControlName="product"
-                inputId="product2"
-              ></p-radioButton>
-              <label for="product2" class="ml-0">Product Name</label>
+
+            <div class="flex items-center gap-3">
+              <i class="pi pi-envelope text-lg"></i>
+              <span>help&#64;pluz-group.com</span>
             </div>
-            <div class="flex items-center">
-              <p-radioButton
-                name="product"
-                label="Product Name 1"
-                value="3"
-                formControlName="product"
-                inputId="product3"
-              ></p-radioButton>
-              <label for="product3" class="ml-0">Product Name</label>
+
+            <div class="flex items-start gap-3">
+              <i class="pi pi-map-marker text-lg"></i>
+              <span>
+                YousifAbd Compass building <br />
+                AI Habab Industrial Zone-FZ, Ras AI Khaimah, UAE
+              </span>
             </div>
-            <div class="flex items-center">
-              <p-radioButton
-                name="product"
-                label="Product Name 1"
-                value="4"
-                formControlName="product"
-                inputId="product4"
-              ></p-radioButton>
-              <label for="product4" class="ml-0">Product Name</label>
-            </div>
+          </div>
+
+          <!-- Social icons -->
+          <div class="mt-4 flex items-center gap-4">
+            <i class="pi pi-facebook cursor-pointer text-xl"></i>
+            <i class="pi pi-twitter cursor-pointer text-xl"></i>
+            <i class="pi pi-instagram cursor-pointer text-xl"></i>
+            <i class="pi pi-youtube cursor-pointer text-xl"></i>
           </div>
         </div>
 
-        <textarea
-          rows="4"
-          pInputTextarea
-          placeholder="Write your message..."
-          class="p-inputtext md:col-span-2"
-          formControlName="message"
-        ></textarea>
+        <!-- RIGHT FORM -->
+        <div class="flex flex-1 flex-col">
+          <form
+            [formGroup]="contactForm"
+            (ngSubmit)="onSubmit()"
+            class="grid grid-cols-1 gap-5 md:grid-cols-2"
+          >
+            <input
+              pInputText
+              placeholder="First Name"
+              formControlName="firstName"
+              class="p-inputtext w-full"
+            />
+            <input
+              pInputText
+              placeholder="Last Name"
+              formControlName="lastName"
+              class="p-inputtext w-full"
+            />
+            <input
+              pInputText
+              placeholder="Email"
+              formControlName="email"
+              class="p-inputtext w-full"
+            />
+            <input
+              pInputText
+              placeholder="Phone Number"
+              formControlName="phone"
+              class="p-inputtext w-full"
+            />
 
-        <div class="flex justify-end md:col-span-2">
-          <button
-            pButton
-            label="Send a message"
-            class="rounded-lg border-none bg-green-600 px-6 py-3 text-white shadow-md hover:bg-green-700"
-          ></button>
+            <div class="md:col-span-2">
+              <h3 class="mb-2 font-medium">Product Interested in?</h3>
+
+              <div class="flex flex-wrap gap-2">
+                <div class="flex items-center">
+                  <p-radioButton
+                    name="product"
+                    label="Product Name 1"
+                    value="1"
+                    formControlName="product"
+                    inputId="product1"
+                  ></p-radioButton>
+                  <label for="product1" class="ml-0">Product Name</label>
+                </div>
+                <div class="flex items-center">
+                  <p-radioButton
+                    name="product"
+                    label="Product Name 1"
+                    value="2"
+                    formControlName="product"
+                    inputId="product2"
+                  ></p-radioButton>
+                  <label for="product2" class="ml-0">Product Name</label>
+                </div>
+                <div class="flex items-center">
+                  <p-radioButton
+                    name="product"
+                    label="Product Name 1"
+                    value="3"
+                    formControlName="product"
+                    inputId="product3"
+                  ></p-radioButton>
+                  <label for="product3" class="ml-0">Product Name</label>
+                </div>
+                <div class="flex items-center">
+                  <p-radioButton
+                    name="product"
+                    label="Product Name 1"
+                    value="4"
+                    formControlName="product"
+                    inputId="product4"
+                  ></p-radioButton>
+                  <label for="product4" class="ml-0">Product Name</label>
+                </div>
+              </div>
+            </div>
+
+            <textarea
+              rows="4"
+              pInputTextarea
+              placeholder="Write your message..."
+              class="p-inputtext md:col-span-2"
+              formControlName="message"
+            ></textarea>
+
+            <div class="flex justify-end md:col-span-2">
+              <button
+                pButton
+                label="Send a message"
+                class="rounded-lg border-none bg-green-600 px-6 py-3 text-white shadow-md hover:bg-green-700"
+              ></button>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
-
+<div class="h-100"></div>
 <!-- MAP SECTION -->
 <div class="my-16 w-full text-center">
   <h2 class="mb-6 text-2xl font-bold">PluzGroup Headquarter</h2>
