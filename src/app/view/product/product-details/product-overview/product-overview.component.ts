@@ -39,10 +39,23 @@ export class ProductOverviewComponent {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['product'] && this.product?.productOverView) {
-      const defaultImg = this.product.productOverView.extraProductImages?.[0] || this.product.image;
+    if (changes['product']) {
+      const prevProduct = changes['product'].previousValue;
+      const currentProduct = changes['product'].currentValue;
 
-      this.selectedImage.set(defaultImg);
+      // Step 1: If first load or product changed
+      if (currentProduct?.productOverView) {
+        const defaultImg =
+          currentProduct.productOverView.extraProductImages?.[0] || currentProduct.image;
+
+        this.selectedImage.set(defaultImg);
+      }
+
+      // Step 2: Compare previous & current product ID
+      if (prevProduct && currentProduct && prevProduct.id !== currentProduct.id) {
+        // Product changed → reset active tab
+        this.activeTab.set('Overview'); // or whatever tab name you want
+      }
     }
   }
 

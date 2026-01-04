@@ -8,8 +8,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './elevated-card.component.scss',
 })
 export class ElevatedCardComponent {
-  @Input() image1: string = '/assets/img/home/img1.png';
-  @Input() image2: string = '/assets/img/home/img2.png';
+  @Input() image1: string = '/assets/img/home/img2.png';
+  @Input() image2: string = '/assets/img/home/img1.png';
   @Input() buttonTitle: string = 'View Details';
   @Input() buttonUrl: string = '';
   @Input() title: string = ' Hydraulic Tools for Heavy Machinery & Equipments';

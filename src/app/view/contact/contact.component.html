@@ -1,7 +1,9 @@
 <div class="flex w-full items-center justify-center lg:mb-36">
   <div class="relative w-350">
-    <div class="absolute top-0 left-0 w-350 -translate-y-[25%] rounded-3xl bg-white p-6 shadow-2xl">
-      <div class="flex h-150 w-full justify-between gap-10 rounded-2xl bg-white p-10">
+    <div
+      class="absolute top-0 left-0 w-full -translate-y-[25%] rounded-3xl bg-white p-6 shadow-2xl"
+    >
+      <div class="flex max-h-180 min-h-140 w-full justify-between gap-10 rounded-2xl bg-white p-10">
         <!-- LEFT CONTACT BOX -->
         <div class="flex flex-col justify-between space-y-6 rounded-xl bg-[#2d2d2d] p-8 text-white">
           <div class="space-y-3">
@@ -38,97 +40,118 @@
 
         <!-- RIGHT FORM -->
         <div class="flex flex-1 flex-col">
-          <form
-            [formGroup]="contactForm"
-            (ngSubmit)="onSubmit()"
-            class="grid grid-cols-1 gap-5 md:grid-cols-2"
-          >
-            <input
-              pInputText
-              placeholder="First Name"
-              formControlName="firstName"
-              class="p-inputtext w-full"
-            />
-            <input
-              pInputText
-              placeholder="Last Name"
-              formControlName="lastName"
-              class="p-inputtext w-full"
-            />
-            <input
-              pInputText
-              placeholder="Email"
-              formControlName="email"
-              class="p-inputtext w-full"
-            />
-            <input
-              pInputText
-              placeholder="Phone Number"
-              formControlName="phone"
-              class="p-inputtext w-full"
-            />
-
-            <div class="md:col-span-2">
-              <h3 class="mb-2 font-medium">Product Interested in?</h3>
-
-              <div class="flex flex-wrap gap-2">
-                <div class="flex items-center">
-                  <p-radioButton
-                    name="product"
-                    label="Product Name 1"
-                    value="1"
-                    formControlName="product"
-                    inputId="product1"
-                  ></p-radioButton>
-                  <label for="product1" class="ml-0">Product Name</label>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="h-full">
+            <div class="flex h-full flex-col justify-between">
+              <div class="grid grid-cols-1 space-y-16 space-x-12 lg:grid-cols-2">
+                <div class="flex h-full flex-col justify-center">
+                  <label class="text-md text-gray-custom mb-1 font-semibold">First Name</label>
+                  <input
+                    type="text"
+                    class="text-gray-custom border-0 border-b border-gray-300 p-0 font-semibold focus:border-gray-300 focus:ring-0 focus:outline-none"
+                    placeholder="First Name"
+                    formControlName="firstName"
+                  />
                 </div>
-                <div class="flex items-center">
-                  <p-radioButton
-                    name="product"
-                    label="Product Name 1"
-                    value="2"
-                    formControlName="product"
-                    inputId="product2"
-                  ></p-radioButton>
-                  <label for="product2" class="ml-0">Product Name</label>
+                <div class="flex h-full flex-col justify-center">
+                  <label class="text-md text-gray-custom mb-1 font-semibold">Last Name</label>
+                  <input
+                    type="text"
+                    class="text-gray-custom border-0 border-b border-gray-300 p-0 font-semibold focus:border-gray-300 focus:ring-0 focus:outline-none"
+                    placeholder="Last Name"
+                    formControlName="lastName"
+                  />
                 </div>
-                <div class="flex items-center">
-                  <p-radioButton
-                    name="product"
-                    label="Product Name 1"
-                    value="3"
-                    formControlName="product"
-                    inputId="product3"
-                  ></p-radioButton>
-                  <label for="product3" class="ml-0">Product Name</label>
+                <div class="flex h-full flex-col justify-center">
+                  <label class="text-md text-gray-custom mb-1 font-semibold">Email</label>
+                  <input
+                    type="text"
+                    class="text-gray-custom border-0 border-b border-gray-300 p-0 font-semibold focus:border-gray-300 focus:ring-0 focus:outline-none"
+                    placeholder="Email"
+                    formControlName="email"
+                  />
                 </div>
-                <div class="flex items-center">
-                  <p-radioButton
-                    name="product"
-                    label="Product Name 1"
-                    value="4"
-                    formControlName="product"
-                    inputId="product4"
-                  ></p-radioButton>
-                  <label for="product4" class="ml-0">Product Name</label>
+                <div class="flex h-full flex-col justify-center">
+                  <label class="text-md text-gray-custom mb-1 font-semibold">Phone Number</label>
+                  <input
+                    type="text"
+                    class="text-gray-custom border-0 border-b border-gray-300 p-0 font-semibold focus:border-gray-300 focus:ring-0 focus:outline-none"
+                    placeholder="Phone Number"
+                    formControlName="phone"
+                  />
                 </div>
               </div>
-            </div>
 
-            <textarea
-              rows="4"
-              pInputTextarea
-              placeholder="Write your message..."
-              class="p-inputtext md:col-span-2"
-              formControlName="message"
-            ></textarea>
+              <div class="">
+                <h3 class="mb-2 font-semibold">Product Interested in?</h3>
 
-            <div class="flex justify-end md:col-span-2">
-              <button
-                pButton
-                label="Send a message"
-                class="rounded-lg border-none bg-green-600 px-6 py-3 text-white shadow-md hover:bg-green-700"
-              ></button>
+                <div class="flex flex-wrap gap-4">
+                  <div class="flex items-center gap-1">
+                    <p-checkbox
+                      class="rounded-full"
+                      name="product"
+                      label="Product Name 1"
+                      value="1"
+                      formControlName="product"
+                      inputId="product1"
+                    ></p-checkbox>
+                    <label class="text-center font-medium" for="product1">Product Name</label>
+                  </div>
+
+                  <div class="flex items-center gap-1">
+                    <p-checkbox
+                      class="rounded-full"
+                      name="product"
+                      label="Product Name 1"
+                      value="2"
+                      formControlName="product"
+                      inputId="product2"
+                    ></p-checkbox>
+                    <label class="text-center font-medium" for="product2">Product Name</label>
+                  </div>
+
+                  <div class="flex items-center gap-1">
+                    <p-checkbox
+                      class="rounded-full"
+                      name="product"
+                      label="Product Name 1"
+                      value="3"
+                      formControlName="product"
+                      inputId="product3"
+                    ></p-checkbox>
+                    <label class="text-center font-medium" for="product3">Product Name</label>
+                  </div>
+
+                  <div class="flex items-center gap-1">
+                    <p-checkbox
+                      class="rounded-full"
+                      name="product"
+                      label="Product Name 1"
+                      value="4"
+                      formControlName="product"
+                      inputId="product4"
+                    ></p-checkbox>
+                    <label class="text-center font-medium" for="product4">Product Name</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-col">
+                <label class="text-md text-gray-custom mb-1 font-semibold">Message</label>
+                <input
+                  type="text"
+                  class="text-gray-custom border-0 border-b border-gray-300 p-0 font-semibold focus:border-gray-300 focus:ring-0 focus:outline-none"
+                  placeholder="Write your message.."
+                  formControlName="message"
+                />
+              </div>
+
+              <div class="flex justify-end md:col-span-2">
+                <button
+                  pButton
+                  label="Send a message"
+                  class="bg-green-custom! hover:bg-green-custom! rounded-lg border-none px-6 py-3 text-white shadow-md"
+                ></button>
+              </div>
             </div>
           </form>
         </div>

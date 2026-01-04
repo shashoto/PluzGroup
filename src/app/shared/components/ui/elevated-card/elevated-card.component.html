@@ -1,52 +1,54 @@
 <div class="flex h-30 w-full items-center justify-center lg:mb-36">
   <div class="relative min-w-4xl">
     <div
-      class="absolute top-0 left-0 h-full min-h-100 max-w-4xl -translate-y-[60%] rounded-3xl bg-white p-6 shadow-2xl"
+      class="bg-green-custom absolute top-0 left-0 h-full min-h-100 max-w-4xl -translate-y-[55%] rounded-2xl shadow-2xl"
     >
-      <div class="flex h-full w-full">
-        <div class="flex h-full flex-1 flex-col justify-between">
-          <div class="flex-1 pr-2">
-            <h2 class="text-3xl leading-tight font-bold text-wrap text-gray-900">
-              {{ title }}
-            </h2>
+      <div class="h-full w-full rounded-4xl bg-white p-6">
+        <div class="flex h-full w-full">
+          <div class="flex h-full flex-1 flex-col justify-between">
+            <div class="h-full pr-2">
+              <h2 class="mb-4 text-3xl leading-tight font-bold text-wrap text-gray-900">
+                {{ title }}
+              </h2>
 
-            <p class="leading-relaxed text-wrap text-gray-600">
-              {{ description }}
-            </p>
+              <p class="leading-tight text-wrap text-gray-600" [innerHTML]="description"></p>
+            </div>
+            @if (buttonTitle != '') {
+              <div>
+                <button
+                  [routerLink]="buttonUrl"
+                  class="bg-green-custom! hover:bg-green-custom! mt-2 rounded-lg px-6 py-3 font-medium text-white shadow transition-all"
+                >
+                  {{ buttonTitle }}
+                </button>
+              </div>
+            }
           </div>
-          @if (buttonTitle != '') {
-            <div>
-              <button
-                [routerLink]="buttonUrl"
-                class="bg-green-custom hover:bg-green-custom mt-2 rounded-lg px-6 py-3 font-medium text-white shadow transition-all"
-              >
-                {{ buttonTitle }}
-              </button>
-            </div>
-          }
-        </div>
 
-        <div class="flex-1">
-          @if (image2) {
-            <div class="relative m-auto flex h-full w-full items-center justify-between">
-              <div class="absolute top-0 right-0">
-                <img
-                  [src]="image1"
-                  class="h-70 w-70 rounded-xl object-cover shadow-md"
-                  alt="Hydraulic Machine"
-                />
+          <div class="flex-1">
+            @if (image2) {
+              <div class="relative m-auto flex h-full w-full items-center justify-between">
+                <div class="absolute top-0 right-0">
+                  <img
+                    [src]="image1"
+                    class="h-70 w-70 rounded-xl object-cover shadow-md"
+                    alt="Hydraulic Machine"
+                  />
+                </div>
+                <div class="absolute bottom-0 left-5">
+                  <img
+                    [src]="image2"
+                    class="h-60 w-60 rounded-xl border-8 border-white object-cover shadow-md"
+                    alt="Hydraulic Machine"
+                  />
+                </div>
               </div>
-              <div class="absolute bottom-0 left-5">
-                <img
-                  [src]="image2"
-                  class="h-60 w-60 rounded-xl border-8 border-white object-cover shadow-md"
-                  alt="Hydraulic Machine"
-                />
+            } @else {
+              <div class="">
+                <img [src]="image1" alt="" class="aspect-4/3 h-full rounded-2xl" />
               </div>
-            </div>
-          } @else {
-            <img [src]="image1" alt="" class="w-full rounded-2xl object-cover" />
-          }
+            }
+          </div>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormsModule, FormGroup, FormControl } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
-import { RadioButtonModule } from 'primeng/radiobutton';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +13,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     ButtonModule,
     FloatLabelModule,
     InputTextModule,
-    RadioButtonModule, // <-- Required for <p-radioButton>
+    CheckboxModule, // <-- Required for <p-radioButton>
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',

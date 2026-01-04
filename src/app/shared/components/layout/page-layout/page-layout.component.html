@@ -1,14 +1,20 @@
 @if (imageUrl) {
-  <section class="relative min-h-1/2 w-full">
+  <section class="relative min-h-1/3 w-full">
     <!-- Background Image -->
-    <div
+    <!-- <div
       class="pointer-events-none absolute inset-0 bg-cover bg-fixed bg-center bg-no-repeat"
       [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')' }"
+    ></div> -->
+    <div
+      class="pointer-events-none absolute inset-0 bg-fixed bg-center bg-no-repeat"
+      [ngStyle]="{
+        'background-image': 'url(' + imageUrl + ')',
+        'background-size': '100% 100%',
+      }"
     ></div>
-
     <!-- Content -->
-    <div class="absolute inset-0 translate-y-1/4 px-4 py-20 text-center text-white">
-      <h1 class="text-4xl font-bold lg:text-5xl">
+    <div class="absolute inset-0 translate-y-10 px-4 py-20 text-center text-white">
+      <h1 class="text-4xl font-bold capitalize lg:text-5xl">
         {{ pageName }}
       </h1>
     </div>

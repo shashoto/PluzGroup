@@ -17,9 +17,16 @@ export class PageLayoutComponent {
   pageName: string = '';
   bgImages: Record<string, { image: string | null; title: string }> = {
     home: { image: '/assets/img/home/hero.png', title: '' },
-    about: { image: '/assets/img/home/hero.png', title: 'About Us' },
-    products: { image: '/assets/img/home/hero.png', title: 'Our Products' },
-    contact: { image: '/assets/img/contactus/hero.png', title: 'Contact Us' },
+    about: { image: '/assets/img/about/hero.png', title: 'ABOUT US' },
+    products: { image: '/assets/img/home/hero.png', title: 'PRODUCT CATEGORY' },
+    contact: { image: '/assets/img/contactus/hero.png', title: 'CONTACT US' },
+    'workshop-press': { image: '/assets/img/home/hero.png', title: 'WORKSHOP PRESS' },
+    'type-press': { image: '/assets/img/home/hero.png', title: 'TYRE PRESS' },
+    'house-coupling-machine': { image: '/assets/img/home/hero.png', title: 'HOSE COUPLING' },
+    'protable-repair-hydraulic-bench': {
+      image: '/assets/img/home/hero.png',
+      title: 'PORTABLE REPAIR HYDRAILIC BENCH',
+    },
   };
 
   constructor() {

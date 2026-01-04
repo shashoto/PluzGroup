@@ -34,37 +34,37 @@ export class NavbarComponent {
       extraInfo: [
         {
           label: 'Torque Wrench',
-          url: '',
+          url: '/view/products/workshop-press',
         },
         {
           label: 'Workshop Press',
-          url: '',
+          url: '/view/products/workshop-press',
         },
         {
           label: 'Tyre Press',
-          url: '',
+          url: '/view/products/type-press',
         },
         {
           label: 'Portable Repair Hydraulic Bench',
-          url: '',
+          url: '/view/products/protable-repair-hydraulic-bench',
         },
         {
           label: 'Hose Coupling',
-          url: '',
+          url: '/view/products/house-coupling-machine',
         },
         {
           label: 'Hydraulic Cylinder Jacks',
-          url: '',
+          url: '/view/products/workshop-press',
         },
         {
           label: 'Rotating Engine Stand',
-          url: '',
+          url: '/view/products/workshop-press',
         },
       ],
     },
     {
-      label: 'Contact',
-      path: '/view/contact',
+      label: 'Blog',
+      path: '/view/blogs',
     },
   ];
 

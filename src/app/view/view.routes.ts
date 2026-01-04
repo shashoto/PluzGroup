@@ -32,6 +32,17 @@ export const viewRoutes: Routes = [
           import('@/app/view/product/product.component').then((p) => p.ProductComponent),
       },
       {
+        path: 'blogs',
+        loadComponent: () => import('@/app/view/blog/blog.component').then((p) => p.BlogComponent),
+      },
+      {
+        path: 'blogs/:id',
+        loadComponent: () =>
+          import('@/app/view/blog/blog-detail/blog-detail.component').then(
+            (p) => p.BlogDetailComponent,
+          ),
+      },
+      {
         path: 'products/:ProductDetail',
         loadComponent: () =>
           import('@/app/view/product/product-details/product-details.component').then(

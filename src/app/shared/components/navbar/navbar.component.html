@@ -71,7 +71,8 @@
       <!-- Contact Button -->
       <div class="shrink-0">
         <button
-          class="bg-green-custom hover:bg-green-custom rounded-lg px-8 py-3 font-medium text-white transition-colors"
+          routerLink="/view/contact"
+          class="bg-green-custom hover:bg-green-custom cursor-pointer rounded-lg px-8 py-3 font-medium text-white transition-colors"
         >
           Contact us
         </button>
@@ -112,11 +113,13 @@
           >
             <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-2">
               <ul *ngFor="let col of splitIntoColumns(2, item.extraInfo)" class="list-disc pl-6">
-                <li *ngFor="let item of col" class="text-left text-sm">
-                  <h1 class="text-xl leading-relaxed">
-                    {{ item.label }}
-                  </h1>
-                </li>
+                @for (item of col; track $index) {
+                  <li class="text-left text-sm leading-relaxed" [routerLink]="item.url">
+                    <h1 class="cursor-pointer text-xl">
+                      {{ item.label }}
+                    </h1>
+                  </li>
+                }
               </ul>
             </div>
           </div>

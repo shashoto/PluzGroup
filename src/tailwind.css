@@ -23,3 +23,15 @@
     @apply font-inter;
   }
 }
+
+.p-checkbox .p-checkbox-box {
+  @apply flex h-5 w-5 items-center justify-center rounded-full;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+  @apply rounded-full;
+}
+
+.p-checkbox .p-checkbox-box::before {
+  @apply rounded-full;
+}

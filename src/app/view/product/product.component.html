@@ -5,10 +5,10 @@
         <div class="col-span-1"></div>
       } @else {
         <div
-          class="group flex w-80 flex-col items-center rounded-xl p-4 text-center transition-all duration-300 hover:shadow-lg"
+          class="group flex w-80 flex-col items-center rounded-xl p-4 text-center transition-all duration-300"
         >
           <div
-            class="group-hover:border-green-custom flex w-full flex-1 flex-col items-center border border-gray-200 p-4"
+            class="group-hover:shadow-green-custom flex w-full flex-1 flex-col items-center border border-gray-200 p-4 group-hover:shadow-lg"
           >
             <!-- Title -->
             <h3 class="mt-4 text-lg font-semibold">{{ item.title }}</h3>
@@ -24,7 +24,7 @@
             pButton
             label="View"
             [routerLink]="['/view/products', item.RouterName]"
-            class="group-hover:bg-green-custom! mt-4 w-full rounded-md border! border-gray-300! bg-white! py-2 text-sm font-semibold text-black! transition-all duration-300 group-hover:text-white!"
+            class="group-hover:bg-green-custom! mt-4 w-full rounded-none! border! border-gray-300! bg-white! py-2 text-sm font-semibold text-black! transition-all duration-300 group-hover:text-white!"
           ></button>
         </div>
       }

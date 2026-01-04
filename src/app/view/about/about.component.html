@@ -16,8 +16,6 @@
   [image4]="'/assets/img/home/About4.png'"
 ></app-about-pluz-group>
 
-<app-carousel></app-carousel>
-
 <div class="flex w-full justify-center py-10">
   <div class="border-gray-custom/20 flex w-full max-w-2xl justify-center border-y">
     <!-- Card 1 -->
@@ -41,7 +39,7 @@
     <!-- LEFT IMAGE -->
     <div class="col-span-1">
       <img
-        src="/assets/img/home/Blog1.png"
+        src="/assets/img/about/blog1.png"
         alt="Mission Image"
         class="h-full w-full rounded-xl object-cover"
       />
@@ -52,7 +50,7 @@
       <div class="flex h-full flex-col justify-between gap-4">
         <!-- Mission -->
         <div
-          class="border-gray-custom/10 flex-1 rounded-xl border bg-linear-to-b from-white to-green-100 p-14 shadow"
+          class="border-gray-custom/10 flex-1 rounded-xl border bg-[linear-gradient(-10deg,#008001_-80%,#ffffff_50%,#ffffff_100%)] p-14 shadow"
         >
           <h2 class="mb-2 text-2xl font-semibold">Mission</h2>
           <p class="text-sm leading-relaxed text-gray-700">
@@ -64,7 +62,7 @@
 
         <!-- Vision -->
         <div
-          class="border-gray-custom/10 flex-1 rounded-xl border bg-linear-to-b from-white to-green-100 p-14 shadow"
+          class="border-gray-custom/10 flex-1 rounded-xl border bg-[linear-gradient(-10deg,#008001_-30%,#ffffff_40%,#ffffff_100%)] p-14 shadow"
         >
           <h2 class="mb-2 text-2xl font-semibold">Vision</h2>
           <p class="text-sm leading-relaxed text-gray-700">
@@ -80,37 +78,20 @@
 
 <app-ultra-reliable></app-ultra-reliable>
 
-<div class="flex w-full justify-center py-10">
+<div class="my-20 flex w-full justify-center py-10">
   <div class="grid w-full max-w-full grid-cols-1 gap-8 px-4 md:grid-cols-4">
-    <div
-      class="rounded-xl border border-gray-300 bg-[linear-gradient(120deg,#ffffff_60%,#d7f7d7_100%)] px-10 py-10 shadow-sm"
-    >
-      <h2 class="text-green-custom text-xl font-bold">10,000+</h2>
-      <p class="mt-1 text-sm text-gray-600">Delivered Projects</p>
-    </div>
-
-    <div
-      class="rounded-xl border border-gray-300 bg-[linear-gradient(120deg,#ffffff_60%,#d7f7d7_100%)] px-10 py-10 shadow-sm"
-    >
-      <h2 class="text-green-custom text-xl font-bold">10,000+</h2>
-      <p class="mt-1 text-sm text-gray-600">Delivered Projects</p>
-    </div>
-
-    <div
-      class="rounded-xl border border-gray-300 bg-[linear-gradient(120deg,#ffffff_60%,#d7f7d7_100%)] px-10 py-10 shadow-sm"
-    >
-      <h2 class="text-green-custom text-xl font-bold">10,000+</h2>
-      <p class="mt-1 text-sm text-gray-600">Delivered Projects</p>
-    </div>
-
-    <div
-      class="rounded-xl border border-gray-300 bg-[linear-gradient(120deg,#ffffff_60%,#d7f7d7_100%)] px-10 py-10 shadow-sm"
-    >
-      <h2 class="text-green-custom text-xl font-bold">10,000+</h2>
-      <p class="mt-1 text-sm text-gray-600">Delivered Projects</p>
-    </div>
+    @for (item of [1, 2, 3, 4]; track $index) {
+      <div
+        class="rounded-xl border border-gray-300 bg-[linear-gradient(120deg,#ffffff_60%,#d7f7d7_100%)] px-10 py-10 shadow-sm"
+      >
+        <h2 class="text-green-custom text-2xl font-extrabold">10,000+</h2>
+        <p class="mt-1 text-lg font-semibold text-gray-600">Delivered Projects</p>
+      </div>
+    }
   </div>
 </div>
+
+<app-carousel></app-carousel>
 
 <app-blog></app-blog>
 

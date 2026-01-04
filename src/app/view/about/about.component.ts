@@ -26,7 +26,7 @@ export class AboutComponent {
   elevatedCardInfo = {
     title: 'Engineering Power. Precision. Performance.',
     description:
-      'At Pluz Group, we specialize in manufacturing high-performance hydraulic tools and bolting systems built for the world’s toughest industries. Our products are engineered for strength, reliability, and precision — delivering unmatched performance in construction, mining, oil & gas, and heavy engineering sectors. Driven by innovation and backed by rigorous testing, we create solutions that keep your operations running stronger, safer, and longer.',
+      'At Pluz Group, we specialize in manufacturing high-performance hydraulic tools and bolting systems built for the world’s toughest industries. Our products are engineered for strength, reliability, and precision — delivering unmatched performance in construction, mining, oil & gas, and heavy engineering sectors.<br/><br/> Driven by innovation and backed by rigorous testing, we create solutions that keep your operations running stronger, safer, and longer.',
     buttonTitle: '',
     routerUrl: '',
     image1: '/assets/img/home/img1.png',

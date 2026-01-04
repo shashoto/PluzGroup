@@ -793,7 +793,7 @@ export const productData: Record<string, Product[]> = {
       footprint: '',
     },
     {
-      id: 'PTP3',
+      id: 'PTP4',
       title: 'PTP-300T TYRE PRESS',
       image: '/assets/img/products/PTP/typePress1.png',
       description:
